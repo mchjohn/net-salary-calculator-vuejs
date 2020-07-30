@@ -1,0 +1,196 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background: #f4f4f4;
+  background: #8E2DE2;
+  background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);
+  background: linear-gradient(to right, #4A00E0, #8E2DE2);
+
+}
+
+#app h1 {
+  margin: 10px 5px 17px 5px;
+  font-size: 2.2em;
+  font-weight: 500;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.685);
+}
+
+.container-inputs {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0 10px 0;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.404);
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+}
+
+.inputs input {
+  width: 100%;
+  padding: 10px 0;
+  margin-bottom: 8px;
+  border: none;
+  border-radius: 4px;
+
+  -webkit-box-shadow: 3px 2px 2px 0px rgba(0, 0, 0, 0.479);
+  -moz-box-shadow: 3px 2px 2px 0px rgba(0, 0, 0, 0.479);
+  box-shadow: 3px 2px 2px 0px rgba(0, 0, 0, 0.479);
+}
+
+.inputs label {
+  margin: -9px 0 2px 0;
+  font-size: 1.1em;
+  color: rgba(0, 0, 0);
+  align-self: start;
+}
+
+input[type=text]:focus {
+  background-color: lightblue;
+}
+
+input[type=text] {
+  background-image: url('money.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding-left: 50px;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.inputs .example {
+  display: flex;
+  font-size: 0.8em;
+  color: #e1e1e1;
+  padding: 0;
+  margin-top: -5px;
+  margin-bottom: 5px;
+  align-self: flex-end;
+}
+
+.container-inputs button {
+  margin: 30px;
+  padding: 6px 10px;
+  border: solid 1px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1.5em;
+  color: #000;
+  background: transparent;
+
+  -webkit-box-shadow: 3px 2px 2px 0px rgba(0, 0, 0, 0.479);
+  -moz-box-shadow: 3px 2px 2px 0px rgba(0, 0, 0, 0.479);
+  box-shadow: 3px 2px 2px 0px rgba(0, 0, 0, 0.479);
+}
+
+.container-inputs button:active {
+  transform: translateY(5px);
+}
+.container-inputs button:hover {
+  background: rgba(0, 0, 0, 0.847);
+  color: #e4e4e4;
+  transition: all 1s;
+}
+
+/* Área do Resultado */
+.liquid {
+  display: flex;
+  text-align: center;
+  margin: 20px;
+}
+
+.liquid > span {
+  width: 500px;
+  margin: 0 auto 20px auto;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #00000088;
+  color: #ff6900;
+  font-size: 1.3em;
+  font-weight: 600;
+}
+
+.liquid .big {
+  font-size: 1.5em;
+}
+
+.container-table {
+  display: flex;
+  margin: 10px;
+}
+
+table {
+  color: rgb(236, 236, 236);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  border: 3px solid rgba(0, 0, 0, 0.445);
+  border-collapse: collapse;
+  border-radius: 5px;
+  font-size: 1.1em;
+  font-weight: 500;
+  background: rgba(0, 0, 0, 0.60);
+}
+
+table .discount {
+  color: #ff1200;
+}
+
+td {
+	border: 1px solid #000;
+}
+
+td, th {
+	padding: 8px;
+	width: 200px;
+	height: 30px;
+}
+
+.td1 {
+  text-align: start;
+}
+
+.td2 {
+  color: #000;
+}
+
+td {
+  text-align: end;
+}
+
+@media (max-width: 700px) {
+  #app h1 {
+    font-size: 1.3em;
+    font-weight: 600;
+  }
+  .inputs {
+    width: 70%;
+  }
+
+  .inputs label {
+    margin: 0;
+  }
+  
+  .inputs input {
+    width: 100%;
+  }
+
+  .container-inputs button {
+    margin: 10px 0 20px 0;
+    padding: 15px 10px;
+  }
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Calculadora Salarial</title>
+</head>
+<body >
+  <div id="app">
+    <h1>Calculadora de $alário Líquido</h1>
+    <div class="container-inputs">
+      <div class="inputs">
+        <label for="fullSalary">Salário Base</label>
+        <input type="text" id="baseSalary" 
+          v-model="baseSalary" onkeypress="return event.charCode == 46 || event.charCode >= 48 && event.charCode <= 57">
+          <span class="example">Ex: 3800.45 (para R$ 3.800,45)</span>
+      </div>
+
+      <div class="inputs">
+        <label for="workday">Jornada de Trabalho</label>
+        <input type="text" id="workday" 
+          v-model="workday" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+          <span class="example">Ex: 220 (para 220horas)</span>
+      </div>
+
+      <div class="inputs">
+        <label for="overtimeFifty">Horas Extras 50%</label>
+        <input type="text" id="overtimeFifty" 
+          v-model="overtimeFifty" onkeypress="return event.charCode == 46 || event.charCode >= 48 && event.charCode <= 57">
+          <span class="example">Ex: 8.30 (para 8:30horas)</span>
+      </div>
+
+      <div class="inputs">
+        <label for="overtimeHundred">Horas Extras 100%</label>
+        <input type="text" id="overtimeHundred" 
+          v-model="overtimeHundred" onkeypress="return event.charCode == 46 || event.charCode >= 48 && event.charCode <= 57">
+          <span class="example">Ex: 2.12 (para 2:12horas)</span>
+      </div>
+
+      <div class="inputs">
+        <label for="dependents">Número de Dependentes</label>
+        <input type="text" id="dependents" 
+          v-model="dependents" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+      </div>
+
+      <div class="inputs">
+        <label for="otherDiscounts" style="margin-top: 4px;">Outros Descontos</label>
+        <input type="text" id="otherDiscounts" 
+          v-model="otherDiscounts" onkeypress="return event.charCode == 46 || event.charCode >= 48 && event.charCode <= 57">
+          <span class="example">Ex: 128.99 (para R$ 128,99)</span>
+      </div>
+
+      <button v-on:click="getHourValue">Calcular Salário</button>
+    </div>
+
+    <div class="liquid" v-if="fullSalary > 1">
+      <span>Seu Salário Líquido Mensal: <span class="big"> R$ {{ netSalary.toFixed(2) }}</span></span>
+    </div>
+
+    <div class="container-table"  v-if="fullSalary > 1">
+      <table>
+        <tbody>
+          <tr>
+            <td class="td1">Sálario Bruto</td>
+            <td>R$ {{ fullSalary.toFixed(2) }}</td>
+          </tr>
+          <tr>
+            <td class="td1">INSS - <span style="color: #ff1200;"> {{ rangeInss }}%</span></td>
+            <td class="discount">- R$ {{ discountInss.toFixed(2) }}</td>
+          </tr>
+          <tr>
+            <td class="td1">IRRF - <span style="color: #ff1200;"> {{ rangeIrrf }}%</span></td>
+            <td class="discount">- R$ {{ discountIrrf.toFixed(2) }}</td>
+          </tr>
+          <tr>
+            <td class="td1">Hora Extra 50%</td>
+            <td>R$ {{ totalOvertimeFifty.toFixed(2) }}</td>
+          </tr>
+          <tr>
+            <td class="td1">Hora Extra 100%</td>
+            <td>R$ {{ totalOvertimeHundred.toFixed(2) }}</td>
+          </tr>
+          <tr>
+            <td class="td1">Total de Horas Extras</td>
+            <td>R$ {{ totalOvertimes.toFixed(2) }}</td>
+          </tr>
+          <tr>
+            <td class="td1">Outros Descontos</td>
+            <td class="discount">- R$ {{ otherDiscounts }}</td>
+          </tr>
+          <tr>
+            <td class="td1">Total de Descontos</td>
+            <td class="discount">- R$ {{ totalDiscount.toFixed(2) }}</td>
+          </tr>
+          <tr style="background-color: #39d739;">
+            <td class="td1 td2">Salário Líquido</td>
+            <td class="td2">R$ {{ netSalary.toFixed(2) }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
