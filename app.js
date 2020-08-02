@@ -1,7 +1,7 @@
 new Vue({
   el: '#app',
   data: {
-    baseSalary: 0.01,
+    baseSalary: 0,
     fullSalary: 0,
     netSalary: 0,
     workday: 220,

@@ -53,10 +53,10 @@
           <span class="example">Ex: 128.99 (para R$ 128,99)</span>
       </div>
 
-      <button v-on:click="getHourValue">Calcular Salário</button>
+      <a href="#liquid"><button v-on:click="getHourValue">Calcular Salário</button></a>
     </div>
 
-    <div class="liquid" v-if="fullSalary > 1">
+    <div class="liquid" v-if="fullSalary > 1" id="liquid">
       <span>Seu Salário Líquido Mensal: <span class="big"> R$ {{ netSalary.toFixed(2) }}</span></span>
     </div>
 
